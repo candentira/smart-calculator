@@ -1,10 +1,14 @@
 class SmartCalculator {
+
   constructor(initialValue) {
-    // your implementation
+    this.stack = [initialValue];
+    this.operators = [];
   }
 
   add(number) {
-    // your implementation
+    this.stack = this.stack.push(number);
+    this.operators.push(this._add);
+    return this;
   }
   
   subtract(number) {
@@ -12,16 +16,29 @@ class SmartCalculator {
   }
 
   multiply(number) {
-    // your implementation
+    this.stack = number * this.stack;
+    return this;
   }
 
   devide(number) {
-    // your implementation
+    this.stack = this.stack / number;
+    return this;
   }
 
   pow(number) {
-    // your implementation
+    this.stack = Math.pow(this.stack, number);
+    return this;
   }
+
+  valueOf() {
+    return this.stack;
+  }
+  
+  _add = (x, y) => x + y;
+  _subtract = (x, y) => x - y;
+  _multiply = (x, y) => x * y;
+  _devide = (x, y) => x / y;
+  _pow = (x, y) => Math.pow(x, y);
 }
 
 module.exports = SmartCalculator;
