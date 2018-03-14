@@ -52,7 +52,7 @@ class SmartCalculator {
         //this is operation
         lastOperation = operations[operations.length - 1];
         if(lastOperation) {
-          while(next[0] <= lastOperation[0]) {
+          while(next[0] <= lastOperation[0] && next[0] != 3) {
             polish.push(operations.pop());
             if(operations.length > 0) {
               lastOperation = operations[operations.length - 1];
